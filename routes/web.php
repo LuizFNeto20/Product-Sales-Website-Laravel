@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('Components/index');
-});
+Route::get('/', [HomeController::class, 'listar']);
 
 Route::get('/usuario/listar', [UsuarioController::class, 'listar']);
 Route::get('/usuario/novo', [UsuarioController::class, 'novo']);
 Route::post('/usuario/salvar', [UsuarioController::class, 'salvar']);
 Route::get('/usuario/editar', [UsuarioController::class, 'editar']);
+
+Route::get('/produto/listar', [ProdutoController::class, 'listar']);
+Route::get('/produto/novo', [ProdutoController::class, 'novo']);
+Route::post('/produto/salvar', [ProdutoController::class, 'salvar']);
+Route::get('/produto/editar/{id}', [ProdutoController::class, 'editar']);
+Route::get('/produto/excluir/{id}', [ProdutoController::class, 'excluir']);

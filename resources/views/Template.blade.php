@@ -101,7 +101,7 @@
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="{{url('usuario/listar')}}">Usuários</a></li>
-            <li><a class="dropdown-item" href="#">Produtos</a></li>
+            <li><a class="dropdown-item" href="{{url('produto/listar')}}">Produtos</a></li>
             <li><a class="dropdown-item" href="#">Pedidos</a></li>
           </ul>
         </li>

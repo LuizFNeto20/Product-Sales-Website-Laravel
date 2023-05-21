@@ -4,8 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Produto extends Model
 {
     use HasFactory;
+    
+    protected $table = 'produto';
+    public $timestamps = false;
+
+    public function categoria(): BelongsTo
+    {
+        return $this->belongsTo(Categoria::class);
+    }
+
+    public function fornecedor(): BelongsTo
+    {
+        return $this->belongsTo(Fornecedor::class);
+    }
 }
