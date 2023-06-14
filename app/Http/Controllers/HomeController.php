@@ -2,17 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produto;
+use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    function listar()
+    function list()
     {
-        $produtos = Produto::orderBy('id')->get();
+        $products = Product::orderBy('id')->get();
+        $reviews = Review::orderBy('id')->get();
+
         return view(
-            'Components/index',
-            compact('produtos')
+            'Index',
+            compact('products', "reviews")
         );
     }
 }

@@ -1,0 +1,29 @@
+<x-app-layout>
+    <h1 class="text-center text-2xl font-bold text-gray-800 my-10">Supplier List</h1>
+    <table class="w-full divide-y divide-gray-200 mt-10 shadow-md rounded-lg">
+    <thead class="bg-black">
+        <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">ID</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">Name</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider">CNPJ</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"></th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-white uppercase tracking-wider"></th>
+        </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        @foreach($suppliers as $supplier)
+        <tr>
+            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{$supplier->id}}</td>
+            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{$supplier->supplier_name}}</td>
+            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">{{$supplier->cnpj}}</td>
+            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"><a class='text-blue-500 hover:text-blue-700 font-bold' href='edit/{{$supplier->id}}'>Edit</a></td>
+            <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap"><a class='text-rose-500 hover:text-rose-700 font-bold' href='delete/{{$supplier->id}}'>Delete</a></td>
+        </tr>
+        @endforeach
+    </tbody>
+    </table>
+
+    <div class='text-center'>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-10"><a href="new">Add Supplier</a></button>
+    </div>
+</x-app-layout>
