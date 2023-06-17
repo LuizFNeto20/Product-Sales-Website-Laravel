@@ -9,6 +9,8 @@ use App\Models\Supplier;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 class ProductController extends Controller
 {
@@ -101,4 +103,11 @@ class ProductController extends Controller
             compact('product', 'users', 'categories', 'suppliers', 'reviews'));
         }
     }
+
+    function report() {
+        $products = Product::orderBy('id')->get();
+        $pdf = Pdf::loadView('components/Listings/ReportProduct', compact('products'));
+
+        return $pdf->download('product.pdf');
+      }
 }

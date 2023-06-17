@@ -38,5 +38,6 @@
     
     <div class='text-center'>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-10"><a href="new">Add Product</a></button>
-    </div>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-10"><a href="report">Report</a></button>
+    </div>  
 </x-app-layout>

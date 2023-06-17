@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/product/save', [ProductController::class, 'save'])->name('product.save');
     Route::get('/product/edit/{id}', [ProductController::class, 'edit'])->name('product.edit');
     Route::get('/product/delete/{id}', [ProductController::class, 'delete'])->name('product.delete');
+    Route::get('/product/report', [ProductController::class, 'report'])->name('product.report');
 
     Route::get('/review/list', [ReviewController::class, 'reviewList'])->name('review.list');
     Route::post('/review/save/', [ReviewController::class, 'save'])->name('review.save');
